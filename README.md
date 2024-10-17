@@ -1,2 +1,0 @@
-# akkaridesign
-akkari webpage
