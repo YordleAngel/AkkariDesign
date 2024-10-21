@@ -16,10 +16,22 @@
             background-color: #333;
             color: white;
             padding: 10px 0;
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        header h1 {
-            margin: 0;
+        header img {
+            margin-left: 20px;
+            max-height: 60px;
+        }
+        nav {
+            margin-right: 20px;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
         }
         main {
             padding: 20px;
@@ -41,7 +53,7 @@
             background-color: #555;
         }
         .product {
-            display: none; /* Ocultamos los productos por defecto */
+            display: none;
             flex-direction: column;
             align-items: center;
             background-color: white;
@@ -92,20 +104,15 @@
     </style>
     <script>
         function showProducts(type) {
-            // Ocultar todos los productos
             var products = document.getElementsByClassName('product');
             for (var i = 0; i < products.length; i++) {
                 products[i].style.display = 'none';
             }
-
-            // Mostrar solo los productos del tipo seleccionado
             var selectedProducts = document.getElementsByClassName(type);
             for (var i = 0; i < selectedProducts.length; i++) {
                 selectedProducts[i].style.display = 'flex';
             }
         }
-
-        // Mostrar todos los productos al cargar la página
         window.onload = function() {
             showProducts('product');
         };
@@ -113,7 +120,15 @@
 </head>
 <body>
     <header>
-        <h1>Catálogo de Productos</h1>
+        <!-- Logo en la parte izquierda -->
+        <img src="images/logo.png" alt="Logo Akkari Design">
+        
+        <!-- Navegación a la derecha -->
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="#catalogo">Catálogo</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
     </header>
 
     <main>
