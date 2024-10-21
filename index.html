@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Akkari Design - Artes Gráficas, servicios de diseño gráfico, imprenta y más.">
+    <meta name="description" content="Bienvenido a Akkari Design - Artes Gráficas, tu opción en impresión y diseño.">
     <title>Akkari Design - Artes Gráficas</title>
     <style>
         body {
@@ -15,63 +15,69 @@
         header {
             background-color: #333;
             color: white;
-            padding: 10px 0;
+            padding: 10px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
         header img {
-            margin-left: 20px;
             max-height: 60px;
         }
+        /* Estilos del nuevo menú hamburguesa */
         nav {
-            margin-right: 20px;
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: white;
-            font-weight: bold;
-        }
-        .menu-icon {
-            display: none;
-            font-size: 30px;
-            cursor: pointer;
-            margin-right: 20px;
+            display: flex;
+            align-items: center;
         }
         .nav-links {
             display: flex;
+            gap: 20px;
         }
-        /* Estilos para móviles */
+        .nav-links a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .hamburger-menu {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        .hamburger-menu div {
+            width: 25px;
+            height: 3px;
+            background-color: white;
+            margin: 4px 0;
+        }
+        /* Estilos para menú desplegable en móviles */
+        .nav-links-mobile {
+            display: none;
+            flex-direction: column;
+            position: absolute;
+            top: 70px;
+            right: 0;
+            background-color: #333;
+            width: 100%;
+            text-align: center;
+        }
+        .nav-links-mobile a {
+            padding: 10px 0;
+            border-top: 1px solid #444;
+            color: white;
+        }
+        .nav-links-mobile.show {
+            display: flex;
+        }
+        /* Medios para hacer que el menú hamburguesa aparezca en móviles */
         @media (max-width: 768px) {
-            .menu-icon {
-                display: block;
-            }
             .nav-links {
                 display: none;
-                flex-direction: column;
-                background-color: #333;
-                position: absolute;
-                top: 70px;
-                right: 0;
-                width: 100%;
-                padding: 10px 0;
             }
-            .nav-links a {
-                padding: 10px;
-                border-top: 1px solid #444;
-                margin: 0;
-                text-align: center;
-            }
-            .nav-links.show {
+            .hamburger-menu {
                 display: flex;
             }
         }
-        main {
-            padding: 20px;
-            text-align: center;
-        }
-        footer {
+		        footer {
             background-color: #333;
             color: white;
             padding: 10px;
@@ -80,32 +86,47 @@
             width: 100%;
             bottom: 0;
         }
+		main {
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
     </style>
     <script>
         function toggleMenu() {
-            var navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('show');
+            var navLinksMobile = document.getElementById('navLinksMobile');
+            navLinksMobile.classList.toggle('show');
         }
     </script>
 </head>
 <body>
     <header>
-        <!-- Logo en la parte izquierda -->
-        <img src="images/logo.png" alt="Logo Akkari Design">
+        <!-- Logo a la izquierda -->
+        <a href="index.html"><img src="images/logo.png" alt="Logo Akkari Design"></a>
         
-        <!-- Icono del menú hamburguesa (solo visible en móviles) -->
-        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
-        
-        <!-- Navegación -->
+        <!-- Menú de navegación normal -->
         <nav>
-            <div class="nav-links" id="navLinks">
+            <div class="nav-links">
                 <a href="catalogo.html">Catálogo</a>
                 <a href="contacto.html">Contacto</a>
             </div>
+
+            <!-- Menú hamburguesa para móviles -->
+            <div class="hamburger-menu" onclick="toggleMenu()">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
         </nav>
+
+        <!-- Menú desplegable para móviles -->
+        <div class="nav-links-mobile" id="navLinksMobile">
+            <a href="catalogo.html">Catálogo</a>
+            <a href="contacto.html">Contacto</a>
+        </div>
     </header>
 
-    <main>
+	<main>
         <h2>Bienvenidos a Akkari Design</h2>
         <p>Ofrecemos servicios de diseño gráfico, impresión y mucho más. Explora nuestro catálogo para descubrir todas nuestras soluciones creativas.</p>
         <a id="catalogo" href="catalogo.html">Ir al catálogo</a>
