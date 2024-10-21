@@ -33,6 +33,40 @@
             color: white;
             font-weight: bold;
         }
+        .menu-icon {
+            display: none;
+            font-size: 30px;
+            cursor: pointer;
+            margin-right: 20px;
+        }
+        .nav-links {
+            display: flex;
+        }
+        /* Estilos para móviles */
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                background-color: #333;
+                position: absolute;
+                top: 70px;
+                right: 0;
+                width: 100%;
+                padding: 10px 0;
+            }
+            .nav-links a {
+                padding: 10px;
+                border-top: 1px solid #444;
+                margin: 0;
+                text-align: center;
+            }
+            .nav-links.show {
+                display: flex;
+            }
+        }
         main {
             padding: 20px;
             text-align: center;
@@ -47,16 +81,27 @@
             bottom: 0;
         }
     </style>
+    <script>
+        function toggleMenu() {
+            var navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('show');
+        }
+    </script>
 </head>
 <body>
     <header>
         <!-- Logo en la parte izquierda -->
         <img src="images/logo.png" alt="Logo Akkari Design">
         
-        <!-- Navegación a la derecha -->
+        <!-- Icono del menú hamburguesa (solo visible en móviles) -->
+        <div class="menu-icon" onclick="toggleMenu()">&#9776;</div>
+        
+        <!-- Navegación -->
         <nav>
-            <a href="catalogo.html">Catálogo</a>
-            <a href="contacto.html">Contacto</a>
+            <div class="nav-links" id="navLinks">
+                <a href="catalogo.html">Catálogo</a>
+                <a href="contacto.html">Contacto</a>
+            </div>
         </nav>
     </header>
 
