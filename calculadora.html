@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora - Akkari Design</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .calculadora {
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: auto;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            font-size: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .result {
+            margin: 20px 0;
+            font-size: 1.5em;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Metros Cuadrados</h1>
+    <div class="calculadora">
+        <input type="number" id="cantidad1" placeholder="Ingrese cantidad 1" step="0.01" oninput="calcular()">
+        <input type="number" id="cantidad2" placeholder="Ingrese cantidad 2" step="0.01" oninput="calcular()">
+
+        <div class="result" id="resultadoMetros">0 (M2) Metros Cuadrados</div>
+        <div class="result" id="resultadoCosto">COSTO: $0 MXN</div>
+    </div>
+
+    <script>
+        function calcular() {
+            const cantidad1 = parseFloat(document.getElementById("cantidad1").value) || 0;
+            const cantidad2 = parseFloat(document.getElementById("cantidad2").value) || 0;
+
+            const metrosCuadrados = cantidad1 * cantidad2;
+            let costo;
+
+            if (metrosCuadrados < 0.49) {
+                costo = Math.ceil(metrosCuadrados * 170); // Costo Doble
+            } else {
+                costo = Math.ceil(metrosCuadrados * 85); // Costo normal
+            }
+
+			if (metrosCuadrados < 0.39) {
+                costo = Math.ceil(metrosCuadrados * 255); // Costo Triple
+            } else {
+                costo = Math.ceil(metrosCuadrados * 85); // Costo normal
+            }
+			
+			if (metrosCuadrados < 0.32) {
+                costo = 45; // Costo fijo para metros cuadrados menores a 0.50
+            } else {
+                costo = Math.ceil(metrosCuadrados * 85); // Costo normal
+            }
+			
+            document.getElementById("resultadoMetros").textContent = metrosCuadrados.toFixed(2) + " (M2) METROS CUADRADOS";
+            document.getElementById("resultadoCosto").textContent = "COSTO: $" + costo + " MXN";
+        }
+    </script>
+</body>
+</html>

@@ -147,57 +147,6 @@
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
-		/* Estilos del modal */
-        .modal {
-            display: none; /* Oculto por defecto */
-            position: fixed; /* Posicionado en relación a la ventana */
-            z-index: 1000; /* Asegura que esté sobre otros elementos */
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto; /* Habilita el desplazamiento si es necesario */
-            background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro con opacidad */
-        }
-        .modal-content {
-            background-color: #fff;
-            margin: 5% auto; /* 15% desde la parte superior y centrado */
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%; /* Ancho del modal */
-            max-width: 800px; /* Ancho máximo del modal */
-        }
-        .close {
-            color: #aaa; /* Color del botón de cerrar */
-            float: right; /* Coloca a la derecha */
-            font-size: 28px;
-            font-weight: bold;
-        }
-        .close:hover,
-        .close:focus {
-            color: black; /* Cambia color al pasar el mouse */
-            text-decoration: none;
-            cursor: pointer; /* Cambia el cursor al pasar */
-        }
-        /* Estilos del botón */
-        .view-details {
-            padding: 10px 20px;
-            background-color: #333;
-            color: white;
-            border: none;
-            cursor: pointer;
-            border-radius: 5px;
-            font-size: 1em;
-        }
-        .view-details:hover {
-            background-color: #555; /* Color al pasar el mouse */
-        }
-        /* Estilos del iframe */
-        iframe {
-            width: 100%;
-            height: 800px; /* Altura del iframe */
-            border: none; /* Sin borde */
-        }
     </style>
     <script>
         function toggleMenu() {
@@ -218,22 +167,6 @@
         window.onload = function() {
             showProducts('product');
         };
-		        // Funciones para abrir y cerrar el modal
-        function openModal() {
-            document.getElementById("myModal").style.display = "block";
-        }
-
-        function closeModal() {
-            document.getElementById("myModal").style.display = "none";
-        }
-
-        // Cierra el modal si se hace clic fuera de él
-        window.onclick = function(event) {
-            var modal = document.getElementById("myModal");
-            if (event.target === modal) {
-                modal.style.display = "none";
-            }
-        }
     </script>
 </head>
 <body>
@@ -268,28 +201,23 @@
         <div class="filter-buttons">
             <button onclick="showProducts('product')">Todos</button>
             <button onclick="showProducts('altoformato')">Impresion Alto Formato</button>
-            <button onclick="showProducts('Playeras')">Playeras</button>
+            <button onclick="showProducts('prendas')">Prendas</button>
+			<button onclick="showProducts('taza')">Taza, Tarro y Botella</button>
+			<button onclick="showProducts('volantes')">Volantes</button>
+			<button onclick="showProducts('tarjetas')">Tarjetas de Presentacion</button>
         </div>
 
         <div class="products-container">
-            <!-- Producto 1 (Lona) -->
+            <!-- Producto 1 (Lona Impresa) -->
             <div class="product altoformato">
                 <img src="images/productos/lona.jpg" alt="Lona Impresa">
                 <h3>Lona Impresa</h3>
                 <p class="description">Lona Impresa con Dobles y Ojillos.</p>
                 <p class="price">$85 MXN</p>
-<button class="view-details" onclick="openModal()">Ver más detalles</button>
-    </div>
+                <button onclick="window.location.href='https://ejemplo.com/producto1'">Ver más detalles</button>
+            </div>
 
-    <!-- Modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <iframe src="index.html"></iframe>
-        </div>
-    </div>
-	
-            <!-- Producto 2 (Lona) -->
+            <!-- Producto 2 (Vinil Impreso) -->
             <div class="product altoformato">
                 <img src="images/productos/vinil.jpg" alt="Vinil Impreso">
                 <h3>Vinil Impreso</h3>
@@ -298,9 +226,180 @@
                 <button onclick="window.location.href='https://ejemplo.com/producto2'">Ver más detalles</button>
             </div>
 
-            <!-- Producto 3 (Playera) -->
-            <div class="product Playeras">
-                <img src="ruta-de-la-imagen-del-producto3.jpg" alt="Producto 3">
+            <!-- Producto 3 (Playera Sublimacion) -->
+            <div class="product prendas">
+                <img src="images/productos/playerasubli.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+		
+			<!-- Producto 4 (Playera DTF) -->
+            <div class="product prendas">
+                <img src="images/productos/playeradtf.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+		
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product prendas">
+                <img src="images/productos/playeravinil.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 6 (Sudadera) -->
+            <div class="product prendas">
+                <img src="images/productos/sudadera.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product prendas">
+                <img src="images/productos/gorramalla.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product prendas">
+                <img src="images/productos/gorradtf.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product taza">
+                <img src="images/productos/taza.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product taza">
+                <img src="images/productos/tazamagica.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product taza">
+                <img src="images/productos/tarro.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product taza">
+                <img src="images/productos/botellapopote.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product taza">
+                <img src="images/productos/botella.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product volantes">
+                <img src="images/productos/volantes/Volante1-24x1.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product volantes">
+                <img src="images/productos/volantes/Volantes1-44x1.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product volantes">
+                <img src="images/productos/volantes/Volantes1-24x4.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product volantes">
+                <img src="images/productos/volantes/Volantes1-44x4.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product volantes">
+                <img src="images/productos/volantes/VolanteBond1-2.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product volantes">
+                <img src="images/productos/volantes/VolanteBond1-4.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product tarjetas">
+                <img src="images/productos/tarjetas/laminado.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product tarjetas">
+                <img src="images/productos/tarjetas/barnizado.jpg" alt="Producto 3">
+                <h3>Producto 3</h3>
+                <p class="description">Descripción detallada del Producto 3 (Playera).</p>
+                <p class="price">$900 MXN</p>
+                <button onclick="window.location.href='https://ejemplo.com/producto3'">Ver más detalles</button>
+            </div>
+			
+			<!-- Producto 5 (Playera Vinil) -->
+            <div class="product tarjetas">
+                <img src="images/productos/tarjetas/100tarjetas.jpg" alt="Producto 3">
                 <h3>Producto 3</h3>
                 <p class="description">Descripción detallada del Producto 3 (Playera).</p>
                 <p class="price">$900 MXN</p>
@@ -313,5 +412,23 @@
         <p>&copy; 2024 Akkari Design - Todos los derechos reservados</p>
     </footer>
 	
+	    <script>
+        // Funciones para abrir y cerrar el modal
+        function openModal() {
+            document.getElementById("myModal").style.display = "block";
+        }
+
+        function closeModal() {
+            document.getElementById("myModal").style.display = "none";
+        }
+
+        // Cierra el modal si se hace clic fuera de él
+        window.onclick = function(event) {
+            var modal = document.getElementById("myModal");
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
 </body>
 </html>
